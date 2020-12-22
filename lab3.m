@@ -31,4 +31,4 @@ end
 
 yFinal = (exp(-(x-c1).^2/(2*r1.^2)))*w1+(exp(-(x-c2).^2/(2*r2.^2)))*w2+b;
 
-plot(x,yFinal)
+plot(x,yFinal,'blue',x,yOut,'red')
