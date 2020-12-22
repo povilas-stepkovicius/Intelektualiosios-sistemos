@@ -18,8 +18,14 @@ r2 = 0.12;
 
 n = 0.25; %error zingsnis
 
-y = (exp(-(x-c1).^2/(2*r1.^2)))*w1+(exp(-(x-c2).^2/(2*r2.^2)))*w2+b;
-error = yOut(1)-y;
-b = b+n*error;
-w1 = w1+n*error*(exp(-(x-c1).^2/(2*r1.^2)));
-w2 = w2+n*error*(exp(-(x-c2).^2/(2*r2.^2)));
+for taskasNr=1:20
+    y = (exp(-(x(taskasNr)-c1).^2/(2*r1.^2)))*w1+(exp(-(x(taskasNr)-c2).^2/(2*r2.^2)))*w2+b;
+    error = yOut(taskasNr)-y;
+    b = b+n*error;
+    w1 = w1+n*error*(exp(-(x(taskasNr)-c1).^2/(2*r1.^2)));
+    w2 = w2+n*error*(exp(-(x(taskasNr)-c2).^2/(2*r2.^2)));
+end
+
+yFinal = (exp(-(x-c1).^2/(2*r1.^2)))*w1+(exp(-(x-c2).^2/(2*r2.^2)))*w2+b;
+
+plot(x,yFinal)
