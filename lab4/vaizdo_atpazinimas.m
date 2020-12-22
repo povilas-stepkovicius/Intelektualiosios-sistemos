@@ -15,7 +15,7 @@ P = cell2mat(pozymiai_tinklo_mokymui);
 T = [eye(10), eye(10), eye(10), eye(10), eye(10), eye(10), eye(10), eye(10)];
 % sukuriamas SBF tinklas duotiems P ir T sàryðiams
 % create an RBF network for classification with 13 neurons, and sigma = 1
-tinklas = newrb(P,T,0,1,13);
+tinklas = newrb(P,T,0,1,8);
 
 %% Tinklo patikra | Test of the network (recognizer)
 % skaièiuojamas tinklo iðëjimas neþinomiems poþymiams
