@@ -10,7 +10,16 @@ w1 = randn(1);
 w2 = randn(1);
 b = randn(1);
 
+%is akies parinkti duomenis pagal duota signala
 c1 = 0.18;
 c2 = 0.9;
 r1 = 0.8;
 r2 = 0.12;
+
+n = 0.25; %error zingsnis
+
+y = (exp(-(x-c1).^2/(2*r1.^2)))*w1+(exp(-(x-c2).^2/(2*r2.^2)))*w2+b;
+error = yOut(1)-y;
+b = b+n*error;
+w1 = w1+n*error*(exp(-(x-c1).^2/(2*r1.^2)));
+w2 = w2+n*error*(exp(-(x-c2).^2/(2*r2.^2)));
