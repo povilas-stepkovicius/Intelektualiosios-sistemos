@@ -3,8 +3,8 @@ clear all
 clc
 %% raidþiø pavyzdþiø nuskaitymas ir poþymiø skaièiavimas
 %% read the image with hand-written characters
-pavadinimas = 'train_data.png';
-pozymiai_tinklo_mokymui = pozymiai_raidems_atpazinti(pavadinimas, 8);
+pavadinimas = 'train_data2.png';
+pozymiai_tinklo_mokymui = pozymiai_raidems_atpazinti(pavadinimas, 6);
 %% Atpaþintuvo kûrimas
 %% Development of character recognizer
 % poþymiai ið celiø masyvo perkeliami á matricà
@@ -12,7 +12,7 @@ pozymiai_tinklo_mokymui = pozymiai_raidems_atpazinti(pavadinimas, 8);
 P = cell2mat(pozymiai_tinklo_mokymui);
 % sukuriama teisingø atsakymø matrica: 11 raidþiø, 8 eilutës mokymui
 % create the matrices of correct answers for each line (number of matrices = number of symbol lines)
-T = [eye(11), eye(11), eye(11), eye(11), eye(11), eye(11), eye(11), eye(11)];
+T = [eye(10), eye(10), eye(10), eye(10), eye(10), eye(10), eye(10), eye(10)];
 % sukuriamas SBF tinklas duotiems P ir T sàryðiams
 % create an RBF network for classification with 13 neurons, and sigma = 1
 tinklas = newrb(P,T,0,1,13);
@@ -37,27 +37,25 @@ for k = 1:raidziu_sk
     switch b2(k)
         case 1
             % the symbol here should be the same as written first symbol in your image
-            atsakymas = [atsakymas, 'A'];
+            atsakymas = [atsakymas, '1'];
         case 2
-            atsakymas = [atsakymas, 'B'];
+            atsakymas = [atsakymas, '2'];
         case 3
-            atsakymas = [atsakymas, 'C'];
+            atsakymas = [atsakymas, '3'];
         case 4
-            atsakymas = [atsakymas, 'D'];
+            atsakymas = [atsakymas, '4'];
         case 5
-            atsakymas = [atsakymas, 'E'];
+            atsakymas = [atsakymas, '5'];
         case 6
-            atsakymas = [atsakymas, 'F'];
+            atsakymas = [atsakymas, '6'];
         case 7
-            atsakymas = [atsakymas, 'G'];
+            atsakymas = [atsakymas, '7'];
         case 8
-            atsakymas = [atsakymas, 'H'];
+            atsakymas = [atsakymas, '8'];
         case 9
-            atsakymas = [atsakymas, 'I'];
+            atsakymas = [atsakymas, '9'];
         case 10
-            atsakymas = [atsakymas, 'K'];
-        case 11
-            atsakymas = [atsakymas, 'J'];
+            atsakymas = [atsakymas, '0'];        
     end
 end
 % pateikime rezultatà komandiniame lange
@@ -66,7 +64,7 @@ disp(atsakymas)
 % % figure(7), text(0.1,0.5,atsakymas,'FontSize',38)
 %% þodþio "KADA" poþymiø iðskyrimas 
 %% Extract features of the test image
-pavadinimas = 'kiek.png';
+pavadinimas = '01134.png';
 pozymiai_patikrai = pozymiai_raidems_atpazinti(pavadinimas, 1);
 
 %% Raidþiø atpaþinimas
@@ -89,27 +87,25 @@ atsakymas = [];
 for k = 1:raidziu_sk
     switch b2(k)
         case 1
-            atsakymas = [atsakymas, 'A'];
+            atsakymas = [atsakymas, '1'];
         case 2
-            atsakymas = [atsakymas, 'B'];
+            atsakymas = [atsakymas, '2'];
         case 3
-            atsakymas = [atsakymas, 'C'];
+            atsakymas = [atsakymas, '3'];
         case 4
-            atsakymas = [atsakymas, 'D'];
+            atsakymas = [atsakymas, '4'];
         case 5
-            atsakymas = [atsakymas, 'E'];
+            atsakymas = [atsakymas, '5'];
         case 6
-            atsakymas = [atsakymas, 'F'];
+            atsakymas = [atsakymas, '6'];
         case 7
-            atsakymas = [atsakymas, 'G'];
+            atsakymas = [atsakymas, '7'];
         case 8
-            atsakymas = [atsakymas, 'H'];
+            atsakymas = [atsakymas, '8'];
         case 9
-            atsakymas = [atsakymas, 'I'];
+            atsakymas = [atsakymas, '9'];
         case 10
-            atsakymas = [atsakymas, 'K'];
-        case 11
-            atsakymas = [atsakymas, 'J'];
+            atsakymas = [atsakymas, '0'];
     end
 end
 % pateikime rezultatà komandiniame lange
@@ -135,27 +131,25 @@ atsakymas = [];
 for k = 1:raidziu_sk
     switch b2(k)
         case 1
-            atsakymas = [atsakymas, 'A'];
+            atsakymas = [atsakymas, '1'];
         case 2
-            atsakymas = [atsakymas, 'B'];
+            atsakymas = [atsakymas, '2'];
         case 3
-            atsakymas = [atsakymas, 'C'];
+            atsakymas = [atsakymas, '3'];
         case 4
-            atsakymas = [atsakymas, 'D'];
+            atsakymas = [atsakymas, '4'];
         case 5
-            atsakymas = [atsakymas, 'E'];
+            atsakymas = [atsakymas, '5'];
         case 6
-            atsakymas = [atsakymas, 'F'];
+            atsakymas = [atsakymas, '6'];
         case 7
-            atsakymas = [atsakymas, 'G'];
+            atsakymas = [atsakymas, '7'];
         case 8
-            atsakymas = [atsakymas, 'H'];
+            atsakymas = [atsakymas, '8'];
         case 9
-            atsakymas = [atsakymas, 'I'];
+            atsakymas = [atsakymas, '9'];
         case 10
-            atsakymas = [atsakymas, 'K'];
-        case 11
-            atsakymas = [atsakymas, 'J'];
+            atsakymas = [atsakymas, '0'];
     end
 end
 % pateikime rezultatà komandiniame lange
