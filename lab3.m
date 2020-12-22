@@ -11,9 +11,9 @@ w2 = randn(1);
 b = randn(1);
 
 %is akies parinkti duomenis pagal duota signala
-c1 = 0.18;
+c1 = 0.19;
 c2 = 0.9;
-r1 = 0.8;
+r1 = 0.14;
 r2 = 0.12;
 
 n = 0.5; %error zingsnis
